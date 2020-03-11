@@ -1,4 +1,5 @@
 #!/usr/bin/python2
+# -*- coding: utf-8 -*-
 # https://zhuanlan.zhihu.com/p/80614707
 
 from __future__ import print_function

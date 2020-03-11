@@ -1,4 +1,5 @@
 #!/usr/bin/python2
+# -*- coding: utf-8 -*-
 # https://zhuanlan.zhihu.com/p/80614707
 
 
@@ -19,11 +20,11 @@ class Config(object):
         self.server.connect(self.TargetIP)
         self.img = ''
         self.img_data = ''
- 
+
     def RT_Image(self):
         camera = cv2.VideoCapture(0)
         img_param = [int(cv2.IMWRITE_JPEG_QUALITY), self.img_fps]
- 
+
         while True:
             time.sleep(0.1)  # sleep for 0.1 seconds
             _, self.img = camera.read()
@@ -41,8 +42,8 @@ class Config(object):
                 print(e.args)
                 camera.release()
                 return
-    
- 
+
+
 if __name__ == '__main__':
     config = Config()
     config.RT_Image()
