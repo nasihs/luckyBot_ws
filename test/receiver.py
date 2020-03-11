@@ -16,7 +16,7 @@ class Camera_Connect_Object(object):
         self.resolution = (640, 480)
         self.src = 888 + 15
         self.interval = 0
-        self.img_fps = 15
+        self.img_fps = 30
 
         self.Server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.Server.bind(self.TargetIP)

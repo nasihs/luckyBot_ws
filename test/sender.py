@@ -15,7 +15,7 @@ class Config(object):
     def __init__(self):
         self.TargetIP = ('192.168.50.2', 6666)
         self.resolution = (640, 480)  # 分辨率
-        self.img_fps = 15  # each second send pictures
+        self.img_fps = 30  # each second send pictures
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server.connect(self.TargetIP)
         self.img = ''
