@@ -49,7 +49,8 @@ class CamRecv(object):
                     cv2.imshow('cam', frame)
                 except Exception as e:
                     print(e.args)
-                    pass
+                    sock.close()
+                    cv2.destroyAllWindows()
                 finally:
                     if cv2.waitKey(10) == 27:  # 按ESC退出
                         sock.close()
