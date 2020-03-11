@@ -11,7 +11,7 @@ import cv2
 import numpy as np
 
 
-HOST = '49.235.15.235'
+HOST = '192.168.50.2'
 PORT = 1201
 BUFSIZE = 1024
 ADDR = (HOST, PORT)
