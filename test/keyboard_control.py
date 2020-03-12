@@ -42,6 +42,7 @@ current_key = None
 
 def on_press(key):
     global current_key
+    print(current_key)
     if key.char != current_key:
         current_key = key.char
         if key.char == 'w':
@@ -54,6 +55,9 @@ def on_press(key):
             car1.turn()
         elif key.char == 'q':  # 电调解锁
             car1.unlock_esc()
+        elif key == keyboard.Key.esc:
+            # Stop listener
+            return False
     elif key.char == current_key:
         pass
 
@@ -65,6 +69,7 @@ def on_release(key):
         car1.stop()
 
 
+print('start')
 # 监听键盘按键
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
