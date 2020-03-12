@@ -1,3 +1,8 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+"""键盘监听程序
+"""
+
 from pynput import keyboard
 
 
