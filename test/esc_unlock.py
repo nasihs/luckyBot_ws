@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# -*- coding: uft-8 -*-
+# -*- coding: utf-8 -*-
 """电调解锁
 pulse 307，持续2s
 """
