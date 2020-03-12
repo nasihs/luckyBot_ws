@@ -11,7 +11,7 @@ from pynput import keyboard
 class Vehicle(object):
 
     def __init__(self, channel_motor=0, channel_servo=3, freq=60):
-        self._pwm = Adafruit_PCA9685()
+        self._pwm = Adafruit_PCA9685.PCA9685()
         self._channel_motor = channel_motor
         self._channel_servo = channel_servo
         self._pwm.set_pwm_freq(freq)
