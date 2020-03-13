@@ -30,12 +30,11 @@ class Vehicle(object):
         return True
 
     def run(self, pulse):
-        print('run')
-        pass
+        self._pwm.set_pwm(self._channel_motor, 0, pulse)
 
     def stop(self):
-        print('stop')
-        # self._pwm.set_pwm(self._channel, 0, 185)
+        self._pwm.set_pwm(self._channel_motor, 0, 307)
+    # self._pwm.set_pwm(self._channel, 0, 185)
 
     def turn(self, pulse=300):
         print('turn')
@@ -46,7 +45,7 @@ luckyBot = Vehicle()
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind(ADDR)
     s.listen(5)
-    print('waiting for client...')
+    print('waiting...')
     client, addr = s.accept()
     print('connected.')
     temp_cmd = None
@@ -59,6 +58,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             if temp_cmd == 'unlock':
                 luckyBot.unlock_esc()
             elif temp_cmd == 'forward':
+                luckyBot.run(407)
                 pass
             elif temp_cmd == 'forward&left':
                 pass
