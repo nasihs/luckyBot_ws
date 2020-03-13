@@ -3,6 +3,7 @@
 
 
 from time import sleep
+from threading import Thread
 
 import Adafruit_PCA9685
 from pynput import keyboard
@@ -29,47 +30,74 @@ class Vehicle(object):
     def stop(self):
         print('stop')
         # self._pwm.set_pwm(self._channel, 0, 185)
-        pass
 
     def turn(self, pulse=300):
         print('turn')
-        pass
-
-
-car1 = Vehicle()
-current_key = None
 
 
 def on_press(key):
-    global current_key
-    print(current_key)
-    if key.char != current_key:
-        current_key = key.char
-        if key.char == 'w':
-            car1.run()
-        elif key.char == 's':
-            car1.run()
-        elif key.char == 'a':
-            car1.turn()
-        elif key.char == 'd':
-            car1.turn()
-        elif key.char == 'q':  # 电调解锁
-            car1.unlock_esc()
-        elif key == keyboard.Key.esc:
-            # Stop listener
-            return False
-    elif key.char == current_key:
-        pass
+    global w_is_pressed
+    global a_is_pressed
+    global s_is_pressed
+    global d_is_pressed
+
+    if key.char == 'w':
+        w_is_pressed = True
+    elif key.char == 'a':
+        a_is_pressed = True
+    elif key.char == 's':
+        s_is_pressed = True
+    elif key.char == 'd':
+        d_is_pressed = True
+    elif key == keyboard.Key.esc:  # 停止监听
+        return False
 
 
 def on_release(key):
+    global w_is_pressed
+    global a_is_pressed
+    global s_is_pressed
+    global d_is_pressed
+
     if key.char == 'w':
-        car1.stop()
+        w_is_pressed = False
+    elif key.char == 'a':
+        a_is_pressed = False
     elif key.char == 's':
-        car1.stop()
+        s_is_pressed = False
+    elif key.char == 'd':
+        d_is_pressed = False
 
 
-print('start')
+def control():
+    while True:
+        if w_is_pressed:
+            car1.run()
+        else:
+            car1.stop()
+        if s_is_pressed:
+            car1.run()
+        else:
+            car1.stop()
+        if a_is_pressed:
+            car1.turn()
+        else:
+            print('reset')
+        if d_is_pressed:
+            car1.turn
+        else:
+            print('reset')
+
+
+car1 = Vehicle()
+
+
+listener = keyboard.Listener(on_press=on_press, on_release=on_release)
+controler = Thread(target=control)
+listener.start()
+controler.start()
+
+
 # 监听键盘按键
-with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
-    listener.join()
+# with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
+#    listener.join()
