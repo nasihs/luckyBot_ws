@@ -69,21 +69,26 @@ def on_release(key):
         d_is_pressed = False
 
 
-def control(w, a, s, d):
+def control():
+    global w_is_pressed
+    global a_is_pressed
+    global s_is_pressed
+    global d_is_pressed
+    
     while True:
-        if w:
+        if w_is_pressed:
             car1.run()
         else:
             car1.stop()
-        if s:
+        if s_is_pressed:
             car1.run()
         else:
             car1.stop()
-        if a:
+        if a_is_pressed:
             car1.turn()
         else:
             print('reset')
-        if d:
+        if d_is_pressed:
             car1.turn
         else:
             print('reset')
@@ -93,7 +98,7 @@ car1 = Vehicle()
 
 
 listener = keyboard.Listener(on_press=on_press, on_release=on_release)
-controler = Thread(target=control, args=(w_is_pressed, a_is_pressed, s_is_pressed, d_is_pressed,))
+controler = Thread(target=control)
 listener.start()
 controler.start()
 
