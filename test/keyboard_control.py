@@ -9,6 +9,12 @@ import Adafruit_PCA9685
 from pynput import keyboard
 
 
+w_is_pressed = None
+a_is_pressed = None
+s_is_pressed = None
+d_is_pressed = None
+
+
 class Vehicle(object):
 
     def __init__(self, channel_motor=0, channel_servo=3, freq=60):
@@ -74,7 +80,7 @@ def control():
     global a_is_pressed
     global s_is_pressed
     global d_is_pressed
-    
+
     while True:
         if w_is_pressed:
             car1.run()
@@ -96,12 +102,10 @@ def control():
 
 car1 = Vehicle()
 
-
 listener = keyboard.Listener(on_press=on_press, on_release=on_release)
 controler = Thread(target=control)
 listener.start()
 controler.start()
-
 
 # 监听键盘按键
 # with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
