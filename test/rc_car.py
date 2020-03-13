@@ -48,6 +48,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.listen(5)
     print('waiting for client...')
     client, addr = s.accept()
+    print('connected.')
     temp_cmd = None
     while True:
         data = client.recv(1024)
