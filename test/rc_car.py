@@ -67,6 +67,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             elif temp_cmd == 'back':
                 pass
             elif temp_cmd == 'stop':
+                luckyBot.stop()
                 pass
             elif temp_cmd == 'quit':
                 break
