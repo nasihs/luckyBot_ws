@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-
+"""局域网控制RC遥控车 被控端
+"""
 
 import socket
 # from threading import Thread
@@ -23,11 +24,14 @@ class Vehicle(object):
         self._channel_servo = channel_servo
         self._pwm.set_pwm_freq(freq)
 
+    def sec_to_pulse(self, second):
+        pass
+
     def unlock_esc(self):
         self._pwm.set_pwm(self._channel_motor, 0, 307)  # 电调解锁方式尚不明确
         sleep(2)
         # print('unlock')
-        return True
+        # return True
 
     def run(self, pulse):
         self._pwm.set_pwm(self._channel_motor, 0, pulse)
@@ -36,8 +40,9 @@ class Vehicle(object):
         self._pwm.set_pwm(self._channel_motor, 0, 307)
     # self._pwm.set_pwm(self._channel, 0, 185)
 
-    def turn(self, pulse=300):
-        print('turn')
+    def turn(self, pulse):
+        self._pwm.set_pwm(self._channel_motor, 0, pulse)
+        # print('turn')
 
 
 luckyBot = Vehicle()
@@ -47,7 +52,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.listen(5)
     print('waiting...')
     client, addr = s.accept()
-    print('connected.')
+    print('recevied connection from:{0}:{1}'.format(addr[0], addr[1]))
     temp_cmd = None
     while True:
         data = client.recv(1024)
@@ -59,16 +64,17 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 luckyBot.unlock_esc()
             elif temp_cmd == 'forward':
                 luckyBot.run(407)
-                pass
-            elif temp_cmd == 'forward&left':
-                pass
-            elif temp_cmd == 'forward&right':
-                pass
             elif temp_cmd == 'back':
-                pass
+                luckyBot.run(185)
             elif temp_cmd == 'stop':
                 luckyBot.stop()
-                pass
+            elif temp_cmd == 'turn_left':
+                luckyBot.turn(460)
+            elif temp_cmd == 'turn_right':
+                luckyBot.turn(200)
+            elif temp_cmd == 'servo_reset':
+                luckyBot.turn(375)
             elif temp_cmd == 'quit':
                 client.close()
+                print('Quit.')
                 break
