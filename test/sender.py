@@ -13,7 +13,7 @@ import numpy
 
 class Config(object):
     def __init__(self):
-        self.TargetIP = ('192.168.50.2', 6666)
+        self.TargetIP = ('192.168.50.3', 6666)
         self.resolution = (640, 480)  # 分辨率
         self.img_fps = 30  # each second send pictures
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
