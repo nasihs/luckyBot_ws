@@ -51,7 +51,7 @@ class Vehicle(object):
     # self._pwm.set_pwm(self._channel, 0, 185)
 
     def turn(self, pulse):
-        self._pwm.set_pwm(self._channel_motor, 0, pulse)
+        self._pwm.set_pwm(self._channel_servo, 0, pulse)
         # print('turn')
 
 
