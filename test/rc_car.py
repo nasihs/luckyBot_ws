@@ -3,6 +3,8 @@
 """局域网控制RC遥控车 被控端
 """
 
+
+import sys
 import socket
 # from threading import Thread
 from time import sleep
@@ -31,7 +33,7 @@ class Vehicle(object):
         self._pwm.set_pwm(self._channel_motor, 0, 307)  # 电调解锁方式尚不明确
         sleep(2)
         # 测试舵机
-        self.turn(375) 
+        self.turn(375)
         sleep(1)
         self.turn(460)
         sleep(1)
@@ -53,10 +55,10 @@ class Vehicle(object):
         # print('turn')
 
 
+port = '{0}'.format(sys.argv[1]) if len(sys.argv) > 1 else PORT
 luckyBot = Vehicle()
-
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.bind(ADDR)
+    s.bind((HOST, port))
     s.listen(5)
     print('waiting...')
     client, addr = s.accept()
