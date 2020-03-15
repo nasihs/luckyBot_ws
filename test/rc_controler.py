@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-
+import sys
 import socket
 from pynput import keyboard
 
@@ -35,7 +35,11 @@ def on_release(key):
     sock.send(b'stop')
 
 
+if not sys.argv == sys.argv[0]:
+    host = '{0}'.format(sys.argv[1])
+else:
+    host = '192.168.50.88'
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.connect(ADDR)
+sock.connect((host, PORT))
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
