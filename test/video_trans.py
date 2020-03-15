@@ -1,8 +1,11 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-
+"""图传 发送端
+支持接收端ip作为命令行参数传入 默认 HOST = '192.168.50.2'
+"""
 
 from __future__ import print_function
+import sys
 import socket
 import time
 import struct
@@ -14,7 +17,7 @@ import numpy as np
 HOST = '192.168.50.2'
 PORT = 1201
 BUFSIZE = 1024
-ADDR = (HOST, PORT)
+# ADDR = (HOST, PORT)
 
 
 class MyCamera(object):
@@ -65,5 +68,9 @@ class MyCamera(object):
 
 
 if __name__ == '__main__':
+    # 接收端ip作为命令行参数传入
+    host = '{0}'.format(sys.argv[1]) if len(sys.argv) > 1 else HOST
+    print('target:{0}:{1}'.format(host, PORT))
     cam1 = MyCamera()
-    cam1.send(ADDR)
+    # cam1.send(ADDR)
+    cam1.send((host, PORT))
