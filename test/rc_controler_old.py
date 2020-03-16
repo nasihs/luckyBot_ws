@@ -2,9 +2,8 @@
 # -*- coding: utf-8 -*-
 """RC遥控车控制端
 目标ip作为命令行参数传入 默认为 '192.168.50.88'
-P: 解锁
-W A S D: 方向键
-Q: 退出
+
+可以前进后退 
 """
 
 
@@ -26,9 +25,9 @@ def on_press(key):
     elif key.char == 's':
         sock.send(b'back')
     elif key.char == 'a':
-        sock.send(b'turn_left')
+        sock.send(b'forward&left')
     elif key.char == 'd':
-        sock.send(b'turn_right')
+        sock.send(b'forward&right')
     elif key.char == 'p':
         sock.send(b'unlock')
     elif key.char == 'q':
@@ -39,10 +38,7 @@ def on_press(key):
 
 def on_release(key):
     global sock
-    if key.char == 'w' or key.char == 's':
-        sock.send(b'stop')
-    elif key.char == 'a' or key.char == 'd':
-        sock.send(b'servo_reset')
+    sock.send(b'stop')
 
 
 host = '{0}'.format(sys.argv[1]) if len(sys.argv) > 1 else HOST

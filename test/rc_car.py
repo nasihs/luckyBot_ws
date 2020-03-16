@@ -76,7 +76,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 luckyBot.unlock_esc()
             elif temp_cmd == 'forward':
                 # print('1')
-                luckyBot.run(400)
+                luckyBot.run(450)
             elif temp_cmd == 'back':
                 luckyBot.run(300)
             elif temp_cmd == 'stop':
