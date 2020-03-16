@@ -30,7 +30,7 @@ class Vehicle(object):
         pass
 
     def unlock_esc(self):
-        self._pwm.set_pwm(self._channel_motor, 0, 307)  # 电调解锁方式尚不明确
+        self._pwm.set_pwm(self._channel_motor, 0, 375)  # 电调解锁方式尚不明确
         sleep(2)
         self._pwm.set_pwm(self._channel_motor, 0, 375)  # 电调解锁方式尚不明确
         # 测试舵机
@@ -53,6 +53,7 @@ class Vehicle(object):
 
     def turn(self, pulse):
         self._pwm.set_pwm(self._channel_servo, 0, pulse)
+        # self._pwm.set_pwm_freq(60)
         # print('turn')
 
 
@@ -74,15 +75,17 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             if temp_cmd == 'unlock':
                 luckyBot.unlock_esc()
             elif temp_cmd == 'forward':
+                # print('1')
                 luckyBot.run(400)
             elif temp_cmd == 'back':
                 luckyBot.run(300)
             elif temp_cmd == 'stop':
                 luckyBot.stop()
             elif temp_cmd == 'turn_left':
+                # print(3)
                 luckyBot.turn(460)
             elif temp_cmd == 'turn_right':
-                luckyBot.turn(200)
+                luckyBot.turn(300)
             elif temp_cmd == 'servo_reset':
                 luckyBot.turn(375)
             elif temp_cmd == 'quit':
