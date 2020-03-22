@@ -2,7 +2,7 @@ import sys
 import cv2
 
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 cap.set(3, 320)
 cap.set(4, 240)
 
