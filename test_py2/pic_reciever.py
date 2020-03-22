@@ -32,7 +32,7 @@ class CamRecv(object):
         print('Accept connection from {0}:{1}'.format(conn, addr))
 
         while True:
-            info = struct.unpack('lhh', conn.recv(8))
+            info = struct.unpack('lhh', conn.recv(12))  # 报错unpack需要12长度 long short分别多长？
             buffer_size = int(info[0])
             if buffer_size:
                 print('图片大小为:{0}bytes'.format(buffer_size))
