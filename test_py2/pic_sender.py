@@ -46,6 +46,7 @@ class PicSender(object):
 
         frame = cv2.resize(frame, self.resolution)
         frame_bytes = self.frame_to_bytes(frame)
+        print('图像长度={0}'.format(len(frame_bytes)))
         while True:
             try:
                 # python2的string为bytes类型 不需要b''转换
