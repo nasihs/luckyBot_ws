@@ -36,7 +36,7 @@ class PicSender(object):
     def send(self, frame):
         print('connecting to:{0}:{1}'.format(self.address[0], self.address[1]))
         try:
-            self.connect(self.address)
+            self.sock.connect(self.address)
             print(self.sock.recv(1024))
         except Exception as e:
             print('connection failed', e.args)
