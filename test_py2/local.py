@@ -19,8 +19,8 @@ _, frame_encode = cv2.imencode('.jpg', frame, param)
 frame_array = np.array(frame_encode)
 frame_bytes = frame_array.tostring()
 
-
-data = np.frombuffer(frame_bytes)
+print('len(frame_bytes)=', len(frame_bytes))
+data = np.fromstring(frame_bytes, dtype=np.uint8)
 frame1 = cv2.imdecode(data, 1)
 cv2.imshow('cam', frame1)
 cv2.waitKey(0)
