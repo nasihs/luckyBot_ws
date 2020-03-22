@@ -22,6 +22,7 @@ class PicSender(object):
 
     def __init__(self, address):
         self.resolution = (300, 300)
+        self.fps = 15
         self.frame = None
         self.address = address
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
