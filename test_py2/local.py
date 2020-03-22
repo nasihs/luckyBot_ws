@@ -14,8 +14,12 @@ import numpy as np
 
 
 frame = cv2.imread('./3.jpg')
-frame_array = np.array(frame)
+param = [int(cv2.IMWRITE_JPEG_QUALITY), 15]
+_, frame_encode = cv2.imencode('.jpg', frame, param)
+frame_array = np.array(frame_encode)
 frame_bytes = frame_array.tostring()
+
+
 data = np.frombuffer(frame_bytes)
 frame1 = cv2.imdecode(data, 1)
 cv2.imshow('cam', frame1)
