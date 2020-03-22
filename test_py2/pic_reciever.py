@@ -43,7 +43,7 @@ class CamRecv(object):
                         temp_buffer = conn.recv(buffer_size)
                         buffer_size -= len(temp_buffer)
                         buffer += temp_buffer
-                    data = np.frombuffer(buffer)
+                    data = np.frombuffer(buffer, dtype=np.uint8)  # dtype需要为图片长度整数倍
                     frame = cv2.imdecode(data, 1)
                     cv2.imshow('cam', frame)
                 except Exception as e:
