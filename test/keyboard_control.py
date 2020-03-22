@@ -94,7 +94,7 @@ def control():
             car1.turn()
         else:
             print('reset')
-        if d_is_pressed:
+        if d_is_pressed: 
             car1.turn
         else:
             print('reset')

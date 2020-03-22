@@ -19,8 +19,13 @@ _, frame_encode = cv2.imencode('.jpg', frame, param)
 frame_array = np.array(frame_encode)
 frame_bytes = frame_array.tostring()
 
+<<<<<<< Updated upstream
 print('len(frame_bytes)=', len(frame_bytes))
 data = np.fromstring(frame_bytes, dtype=np.uint8)
+=======
+
+data = np.frombuffer(frame_bytes, dtype=np.uint8)  # 需要uint8 图片长度为一个字节的整数倍
+>>>>>>> Stashed changes
 frame1 = cv2.imdecode(data, 1)
 cv2.imshow('cam', frame1)
 cv2.waitKey(0)

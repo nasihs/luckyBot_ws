@@ -54,11 +54,12 @@ class CamRecv(object):
                     print(e.args)
                     sock.close()
                     cv2.destroyAllWindows()
+                    break
                 finally:
                     if cv2.waitKey(10) == 27:  # 按ESC退出
                         sock.close()
                         cv2.destroyAllWindows()
-                        print('Disconnected.')
+                        print('Esc.')
                         break
 
 
