@@ -32,7 +32,7 @@ class Camera_Connect_Object(object):
             if len(tempdata) == 0:
                 print("+1")
                 continue
-            info = struct.unpack(b'lhh', tempdata)
+            info = struct.unpack('lhh', tempdata)
             buf_size = int(info[0])
 
             if buf_size:
