@@ -28,7 +28,8 @@ class Camera_Connect_Object(object):
         print(self.name)
         while True:
             # time.sleep(0.3)  # sleep for 0.3 seconds
-            tempdata = self.client.recv(8)
+            # tempdata = self.client.recv(8)
+            tempdata = self.client.recv(12)
             if len(tempdata) == 0:
                 print("+1")
                 continue
