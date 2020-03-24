@@ -28,14 +28,14 @@ conn2.setblocking(0)
 # 开始处理消息
 while True:
     try:
-        temp1 = conn1.recv(4096)
+        temp1 = conn1.recv(1024)
         conn2.send(temp1)
     except Exception as e:
         # print(e.args)
         pass
 
     try:
-        temp2 = conn2.recv(4096)
+        temp2 = conn2.recv(1024)
         conn1.send(temp2)
     except Exception as e:
         # print(e.args)
