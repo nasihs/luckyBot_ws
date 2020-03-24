@@ -37,7 +37,7 @@ class MyCamera(object):
     def send(self):
         print('Connecting to {0}:{1}...'.format(self.address[0], self.address[1]))
         self.sock.connect(self.address)
-        print(self.sock.recv())  # 显示连接成功
+        print(self.sock.recv(1024))  # 显示连接成功
 
         cap = cv2.VideoCapture(0)
         param = [int(cv2.IMWRITE_JPEG_QUALITY), self.fps]
