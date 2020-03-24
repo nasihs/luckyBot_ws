@@ -28,7 +28,6 @@ class Camera_Connect_Object(object):
             # time.sleep(0.3)  # sleep for 0.3 seconds
             # tempdata = self.client.recv(8)
             tempdata = self.client.recv(8)
-	    print('tempdata size:', len(tempdata))
             if len(tempdata) == 0:
                 print("+1")
                 continue
