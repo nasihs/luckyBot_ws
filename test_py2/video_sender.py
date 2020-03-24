@@ -43,7 +43,7 @@ class MyCamera(object):
         param = [int(cv2.IMWRITE_JPEG_QUALITY), self.fps]
 
         while True:
-            time.sleep(0.1)
+            # time.sleep(0.1)
             _, self.frame = cap.read()
             self.frame = cv2.resize(self.frame, self.resolution)
             # 本地窗口显示
