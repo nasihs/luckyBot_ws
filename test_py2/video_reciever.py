@@ -38,7 +38,7 @@ class CamRecv(object):
         print('Accept connnection from {0}:{1}'.format(addr[0], addr[1]))
 
         while True:
-            tempdata = self.conn.recv(8)
+            tempdata = conn.recv(8)
             if len(tempdata) == 0:
                 print('+1')
                 continue
