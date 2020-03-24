@@ -41,10 +41,11 @@ class CamRecv(object):
         # print('Accept connnection from {0}:{1}'.format(addr[0], addr[1]))
         print(self.sock.recv(1024))  # ??????
         while True:
-            tempdata = self.sock.recv(8)
-            if len(tempdata) == 0:
-                print('+1')
-                continue
+            tempdata = ''
+            for i in range(8):
+                tempdata += self.sock.recv(1)
+                # if len(tempdata) == 0:
+                #     continue
             info = struct.unpack('ihh', tempdata)
             buffer_size = int(info[0])
             if buffer_size:
