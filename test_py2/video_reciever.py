@@ -1,6 +1,6 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-"""?? ???
+"""???-???
 """
 
 
@@ -25,7 +25,7 @@ class CamRecv(object):
 
         self.address = address
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # ????
+        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # ??????
 
         self.frame = ''
         self.frame_bytes = ''

@@ -1,6 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 """???-???
+??1-2???? coorupt JPEG data ??
 """
 
 
@@ -41,6 +42,7 @@ class CamRecv(object):
         # print('Accept connnection from {0}:{1}'.format(addr[0], addr[1]))
         print(self.sock.recv(1024))  # ??????
         while True:
+            """????????1?? ????8??????info"""
             tempdata = ''
             for i in range(8):
                 tempdata += self.sock.recv(1)

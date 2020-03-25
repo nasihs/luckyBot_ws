@@ -1,6 +1,6 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-"""图传 服务端
+"""中转服务器 将video_sender发送的数据转发给video_reciever
 """
 
 from __future__ import print_function
@@ -28,14 +28,18 @@ conn2.setblocking(0)
 # 开始处理消息
 while True:
     try:
-        temp1 = conn1.recv(1024)
+        """每次转发1024
+        每次转发一字节，但运行1-2分钟后报 coorupt JPEG data 错误
+        还是图片数据不完整的问题
+        """
+        temp1 = conn1.recv(1)
         conn2.send(temp1)
     except Exception as e:
         # print(e.args)
         pass
 
     try:
-        temp2 = conn2.recv(1024)
+        temp2 = conn2.recv(1)
         conn1.send(temp2)
     except Exception as e:
         # print(e.args)
