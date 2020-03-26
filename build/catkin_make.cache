@@ -1,2 +1,2 @@
-
--DPYTHON_EXECUTABLE=/usr/bin/python3 -DCATKIN_DEVEL_PREFIX=/home/shisan/luckyBot_ws/devel -DCMAKE_INSTALL_PREFIX=/home/shisan/luckyBot_ws/install -G Unix Makefiles
+Delta_2A_ros
+-DCATKIN_DEVEL_PREFIX=/home/shisan/luckyBot_ws/devel -DCMAKE_INSTALL_PREFIX=/home/shisan/luckyBot_ws/install -G Unix Makefiles
