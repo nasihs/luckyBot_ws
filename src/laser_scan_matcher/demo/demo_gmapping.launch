@@ -12,6 +12,12 @@ slam_gmapping
   <node pkg="rosbag" type="play" name="play" 
     args="$(find laser_scan_matcher)/demo/demo.bag --delay=5 --clock"/>
 
+  #### start delta_2b_lidar ######################################
+  <node name="delta_lidar"  pkg="delta_lidar"  type="delta_lidar_node"  output="screen">
+  <param name="serial_port"  type="string"  value="/dev/ttyUSB0"/>
+  <param name="frame_id"     type="string"  value="base_laser"/>
+  </node>
+
   #### publish an example base_link -> laser transform ###########
 
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" 

@@ -132,6 +132,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/shisan/luckyBot_ws/build/gtest/cmake_install.cmake")
   include("/home/shisan/luckyBot_ws/build/Delta_2A_ros/cmake_install.cmake")
+  include("/home/shisan/luckyBot_ws/build/laser_scan_matcher/cmake_install.cmake")
 
 endif()
 

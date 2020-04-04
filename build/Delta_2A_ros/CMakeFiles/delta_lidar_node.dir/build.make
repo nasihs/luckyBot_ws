@@ -352,7 +352,6 @@ delta_lidar_node_EXTERNAL_OBJECTS =
 /home/shisan/luckyBot_ws/devel/lib/delta_lidar/delta_lidar_node: Delta_2A_ros/CMakeFiles/delta_lidar_node.dir/build.make
 /home/shisan/luckyBot_ws/devel/lib/delta_lidar/delta_lidar_node: /opt/ros/melodic/lib/libroscpp.so
 /home/shisan/luckyBot_ws/devel/lib/delta_lidar/delta_lidar_node: /usr/lib/arm-linux-gnueabihf/libboost_filesystem.so
-/home/shisan/luckyBot_ws/devel/lib/delta_lidar/delta_lidar_node: /usr/lib/arm-linux-gnueabihf/libboost_signals.so
 /home/shisan/luckyBot_ws/devel/lib/delta_lidar/delta_lidar_node: /opt/ros/melodic/lib/libxmlrpcpp.so
 /home/shisan/luckyBot_ws/devel/lib/delta_lidar/delta_lidar_node: /opt/ros/melodic/lib/librosconsole.so
 /home/shisan/luckyBot_ws/devel/lib/delta_lidar/delta_lidar_node: /opt/ros/melodic/lib/librosconsole_log4cxx.so

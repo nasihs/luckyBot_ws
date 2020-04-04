@@ -1,2 +1,2 @@
-Delta_2A_ros
+Delta_2A_ros:laser_scan_matcher
 -DCATKIN_DEVEL_PREFIX=/home/shisan/luckyBot_ws/devel -DCMAKE_INSTALL_PREFIX=/home/shisan/luckyBot_ws/install -G Unix Makefiles

@@ -5,6 +5,11 @@
 # it emulates the modifications of the setup script without recurring computations
 
 # new environment variables
+export ROS_MASTER_URI="http://localhost:11311"
 
 # modified environment variables
+export CMAKE_PREFIX_PATH="/home/shisan/luckyBot_ws/devel:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/shisan/luckyBot_ws/devel/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/shisan/luckyBot_ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/shisan/luckyBot_ws/build"
+export ROS_PACKAGE_PATH="/home/shisan/luckyBot_ws/src:$ROS_PACKAGE_PATH"

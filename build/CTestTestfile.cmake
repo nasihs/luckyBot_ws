@@ -6,3 +6,4 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("Delta_2A_ros")
+subdirs("laser_scan_matcher")

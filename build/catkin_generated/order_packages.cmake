@@ -8,7 +8,11 @@ list(APPEND CATKIN_ORDERED_PACKAGES "delta_lidar")
 list(APPEND CATKIN_ORDERED_PACKAGE_PATHS "Delta_2A_ros")
 list(APPEND CATKIN_ORDERED_PACKAGES_IS_META "False")
 list(APPEND CATKIN_ORDERED_PACKAGES_BUILD_TYPE "catkin")
+list(APPEND CATKIN_ORDERED_PACKAGES "laser_scan_matcher")
+list(APPEND CATKIN_ORDERED_PACKAGE_PATHS "laser_scan_matcher")
+list(APPEND CATKIN_ORDERED_PACKAGES_IS_META "False")
+list(APPEND CATKIN_ORDERED_PACKAGES_BUILD_TYPE "catkin")
 
 set(CATKIN_MESSAGE_GENERATORS )
 
-set(CATKIN_METAPACKAGE_CMAKE_TEMPLATE "/usr/local/lib/python3.6/dist-packages/catkin_pkg/templates/metapackage.cmake.in")
+set(CATKIN_METAPACKAGE_CMAKE_TEMPLATE "/home/shisan/.local/lib/python3.6/site-packages/catkin_pkg/templates/metapackage.cmake.in")
